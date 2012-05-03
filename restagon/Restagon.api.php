@@ -146,7 +146,7 @@ class Restagon
 		try {
 			// $result will either return TRUE, or throw a RestagonException
 			$result = $this->_request->addResponseFormat( 	$format_class, $format_content_type, 
-														$format_extension, $path_to_class   );
+									$format_extension, $path_to_class   );
 			return TRUE;
 			
 		} catch (RestagonException $re) {
@@ -195,7 +195,7 @@ class Restagon
 	 */
 	public function setDefaultAuthenticationClass($authentication_class, $path_to_class = INCLUDES_DIRECTORY_PATH)
 	{
-        ### set the Authentication class instance in the Request object
+		### set the Authentication class instance in the Request object
 		try {
 			// $result will either return TRUE, or throw a RestagonException
 			$result = $this->_request->setAuthenticationInstance($authentication_class, $path_to_class);
@@ -231,7 +231,7 @@ class Restagon
 				// create a Response object and throw it in a RestagonException
 				$response = new Response($this->_request);
 				
-				$response->addHeader(StatusCodes::HTTP_404); ////////////////////////////////////
+				$response->addHeader(StatusCodes::HTTP_404);
 				$errorBody = array("error" => array (
 					"errorCode" => "1001",
 					"errorMessage" => "The requested resource was not found",
@@ -252,7 +252,7 @@ class Restagon
 					// create a Response object and throw it in a RestagonException
 					$response = new Response($this->_request);
 					
-					$response->addHeader(StatusCodes::HTTP_405); ////////////////////////////////////
+					$response->addHeader(StatusCodes::HTTP_405);
 					$errorBody = array("error" => array (
 						"errorCode" => "1002",
 						"errorMessage" => "The requested HTTP method is not supported",
