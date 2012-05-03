@@ -59,31 +59,31 @@
  */
 class Restagon
 {
-		
+	
 	/**
-     * An instance of Router class that will take care of registering our Module Controller classes
+	 * An instance of Router class that will take care of registering our Module Controller classes
 	 * with the framework (along with their url routing maps) and finding the one that matches the
 	 * current REQUEST_URI.
-     * 
-     * @var Router controls Routing the Request to the right Controller class
-     */
+	 * 
+	 * @var Router controls Routing the Request to the right Controller class
+	 */
 	private $_router;
 	
 	
 	/**
-     * An instance of Request class containing headers, supported response formats, and url to send 
+	 * An instance of Request class containing headers, supported response formats, and url to send
 	 * to the Modules for processing.
-     * 
-     * @var Response object containing all headers and message body to send to client.
-     */
+	 * 
+	 * @var Response object containing all headers and message body to send to client.
+	 */
 	private $_request;
 	
 	
 	/**
-     * An instance of Response class containing headers and body to send back to the client.
-     * 
-     * @var Response object containing all headers and message body to send to client.
-     */
+	 * An instance of Response class containing headers and body to send back to the client.
+	 * 
+	 * @var Response object containing all headers and message body to send to client.
+	 */
 	private $_response;
 	
 	
@@ -92,7 +92,7 @@ class Restagon
 	 * create an instance of the Router class to be used by the addModuleController() method and
 	 * the findController() method to match the REQUEST_URI to a Module Controller class.
 	 */
-    public function __construct()
+	public function __construct()
 	{
 		### load the interfaces and helper classes
 		require_once( RESTAGON_DIRECTORY_PATH . 'HTTP/ResponseFormat/iResponseFormat.interface.php' );
