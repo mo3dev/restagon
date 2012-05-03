@@ -39,12 +39,13 @@ class RestagonException extends Exception
 {
 	
 	/**
-     * An instance of the Response class containing response headers, body, etc to send back to 
+	 * An instance of the Response class containing response headers, body, etc to send back to 
 	 * client.
-     * 
-     * @var Response object containing the full response (headers, body, etc) to send to client as an error
-     */
+	 * 
+	 * @var Response object containing the full response (headers, body, etc) to send to client as an error
+	 */
 	private $_response;
+	
 	
 	/**
 	 * RestagonException class constructor. The parameter Response object should ideally contain an 
@@ -61,6 +62,7 @@ class RestagonException extends Exception
 		// set the parent's constructor
 		parent::__construct( 'Restagon Framework Error', 0, NULL );
 	}
+	
 	
 	/**
 	 * getResponse() method is the getter method for _response property.

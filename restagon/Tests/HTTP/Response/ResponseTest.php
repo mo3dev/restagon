@@ -26,7 +26,6 @@
  * @version 0.0.2
  */
 
-
 require_once( dirname(__FILE__) . '/../../../../config.php');
 require_once( RESTAGON_DIRECTORY_PATH . 'HTTP/Response/Response.php' );
 require_once( RESTAGON_DIRECTORY_PATH . 'Restagon.api.php' );
@@ -56,15 +55,6 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 		
 		$this->assertEquals( $result, "{\"test\":\"yay\"}" );
 	}
-	
-	
-	/**
-	 * test()
-	 */
-	/*public function test()
-	{
-		//
-	}*/
 
 }
 

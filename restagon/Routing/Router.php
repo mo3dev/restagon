@@ -39,20 +39,20 @@ class Router
 {
 	
 	/**
-     * An array containing instances of RouteMap class which are generated in the addModuleControllerClass
+	 * An array containing instances of RouteMap class which are generated in the addModuleControllerClass
 	 * method from the added Module Controller classes.
-     * 
-     * @var array will hold all registered RouteMaps (created from Module Controllers registered in API)
-     */
+	 * 
+	 * @var array will hold all registered RouteMaps (created from Module Controllers registered in API)
+	 */
 	private $_routes = array();
 	
-	/**
-     * An instance of the Request class for the current request
-     * 
-     * @var Request
-     */
-    private $_request;
 	
+	/**
+	 * An instance of the Request class for the current request
+	 * 
+	 * @var Request
+	 */
+	private $_request;
 	
 	
 	/**
@@ -60,7 +60,7 @@ class Router
 	 * 
 	 * @param object $request The Request object (to create the Response object incase of error)
 	 */
-    public function __construct($request)
+	public function __construct($request)
 	{
 		// import the RouteMap class (only used within Router class)
 		require_once( RESTAGON_DIRECTORY_PATH . 'Routing/RouteMap.php' );
@@ -71,14 +71,14 @@ class Router
 	
 	
 	/**
-     * addModuleControllerClass() method will take care of registering our Module Controller classes
+	 * addModuleControllerClass() method will take care of registering our Module Controller classes
 	 * in the private _routes property.
 	 * 
 	 * @param string $module_controller_class the Module Controller class name
 	 * @param string $path_to_class the path to the Module Controller class's file ('/application/modules/' is default)
-     * @return boolean will only return success (true), throws a RestagonException if failure
+	 * @return boolean will only return success (true), throws a RestagonException if failure
 	 * @throws RestagonException
-     */
+	 */
 	public function addModuleControllerClass($module_controller_class, 
 	$path_to_class = MODULES_DIRECTORY_PATH)
 	{
@@ -155,11 +155,11 @@ class Router
 	
 	
 	/**
-     * getModuleControllerForURI() method will parse the given URI using Regular Expressions
+	 * getModuleControllerForURI() method will parse the given URI using Regular Expressions
 	 * 
 	 * @param string $uri the Module Controller class name
-     * @return string|NULL The name of the Module controller, or NULL if no controller is matched
-     */
+	 * @return string|NULL The name of the Module controller, or NULL if no controller is matched
+	 */
 	public function getModuleControllerForURI($uri)
 	{
 		### figure out which registered module controller is targetted by the url

@@ -40,30 +40,33 @@ class Request
 {
 	
 	/**
-     * This array contains the response format class combinations (class name, content-type, extension)
-     * 
-     * @var array response formats (valid)
-     */
+	 * This array contains the response format class combinations (class name, content-type, extension)
+	 * 
+	 * @var array response formats (valid)
+	 */
 	private $_responseFormats = array();
 	
-	/**
-     * This is an instance of the authentication class the user wants to handle Authentication
-     * 
-     * @var object an authentication class instance
-     */
-	private $_authenticationInstance = NULL;
 	
 	/**
-     * This is an instance of the response format class used for the response body sent back to client
-     * 
-     * @var object instance of a response format class set by developer
-     */
+	 * This is an instance of the authentication class the user wants to handle Authentication
+	 * 
+	 * @var object an authentication class instance
+	 */
+	private $_authenticationInstance = NULL;
+	
+	
+	/**
+	 * This is an instance of the response format class used for the response body sent back to client
+	 * 
+	 * @var object instance of a response format class set by developer
+	 */
 	private $_responseFormatInstance = NULL;
+	
 	
 	/**
 	 * Request class constructor.
 	 */
-    public function __construct()
+	public function __construct()
 	{
 		### add the ResponseFormatJSON as a default response format class (that come with the framework)
 		### please don't remove this format class as it is needed incase no format class is set or
@@ -75,7 +78,7 @@ class Request
 	
 	
 	/**
-     * addResponseFormat() method will take care of registering our custom (and default-framework-
+	 * addResponseFormat() method will take care of registering our custom (and default-framework-
 	 * provided ResponseFormat classes - implementing the iFormatResponse interface). The method will
 	 * add each passed-in class combo to the Request class's $formats array. The object will be passed
 	 * throughout the execution path until a Response object is created from it.
@@ -84,12 +87,12 @@ class Request
 	 * @param string $format_content_type the HTTP Content-Type value associated with this format
 	 * @param string $format_extension the file extension associated with this format (ie. '.xml')
 	 * @param string $path_to_class the path to the format class's file (defaults to 'application/includes')
-     * @return boolean will only return success (true), throws a RestagonException if failure
+	 * @return boolean will only return success (true), throws a RestagonException if failure
 	 * @throws RestagonException
-     */
-    public function addResponseFormat($format_class, $format_content_type, $format_extension, 
+	 */
+	public function addResponseFormat($format_class, $format_content_type, $format_extension, 
 	$path_to_class = INCLUDES_DIRECTORY_PATH)
-    {
+	{
 		### does the class file ($format_class.php) exist in the path specified?
 		$fileName = $path_to_class . $format_class . '.php';
 		
@@ -147,9 +150,11 @@ class Request
 		}
 		
 		// all is well (class found and is valid), add the format to the response_formats array property
-		$this->_responseFormats[] = array(	'format_class' => $format_class,
-											'format_content_type' => $format_content_type,
-											'format_extension' => $format_extension		);
+		$this->_responseFormats[] = array(
+			'format_class' => $format_class,
+			'format_content_type' => $format_content_type,
+			'format_extension' => $format_extension
+		);
 		
 		// return success
 		return TRUE;
@@ -157,15 +162,15 @@ class Request
 	
 	
 	/**
-     * setAuthenticationInstance() method will set the Authentication instance that the user wants to handle
+	 * setAuthenticationInstance() method will set the Authentication instance that the user wants to handle
 	 * Authentication. Once an instance is set (it can be used right away in the method 
 	 * $this->_authenticationInstance->isAuthenticated().
 	 * 
 	 * @param string $authentication_class the custom Response Format class name
 	 * @param string $path_to_class the path to the authentication class's file (defaults to 'application/includes')
-     * @return boolean will only return success (true), throws a RestagonException if failure
+	 * @return boolean will only return success (true), throws a RestagonException if failure
 	 * @throws RestagonException
-     */
+	 */
 	public function setAuthenticationInstance($authentication_class, $path_to_class = INCLUDES_DIRECTORY_PATH)
 	{
 		### does the class file ($authentication_class.php) exist in the path specified?

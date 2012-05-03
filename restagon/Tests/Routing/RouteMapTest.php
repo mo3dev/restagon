@@ -26,7 +26,6 @@
  * @version 0.0.2
  */
 
-
 require_once( dirname(__FILE__) . '/../../../config.php');
 require_once( RESTAGON_DIRECTORY_PATH . 'Routing/RouteMap.php' );
 
@@ -60,16 +59,6 @@ class RouteMapTest extends PHPUnit_Framework_TestCase
 		$regex3 = $this->routeMap->getRegularExpressionFromRouteMap( '/whatever/count/(\d+)/helloworld' );
 		$this->assertNotEquals( $regex3, '/^\/\/whatever\/count\/(\d+)\/hello\z/i' );
 	}
-	
-	
-	
-	/**
-	 * test()
-	 */
-	/*public function test()
-	{
-		//
-	}*/
 	
 }
 

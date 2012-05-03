@@ -41,6 +41,7 @@ class NoAuthentication implements iAuthenticate
 		return TRUE; // NoAuthentication will always return TRUE for access granted
 	}
 	
+	
 	/**
 	 * getAuthorizationHeader() method returns the HTTP Authorization header expected for the
 	 * implementing authentication class.

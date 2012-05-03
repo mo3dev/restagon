@@ -31,13 +31,13 @@
 #############################################
 
 ### The base directory path (the path containing the framework folder and everything else)
-define( 'BASE_DIRECTORY_PATH' , '/ABSOLUTE/PATH/TO/public_html/api/v1/' );
+define( 'BASE_DIRECTORY_PATH' , '/ABSOLUTE/PATH/TO/public_html/api/v1/' ); // <--------- IMPORTANT 1
 
 ### The ABSOLUTE path to the (restagon) directory
-define( 'RESTAGON_DIRECTORY_PATH' , BASE_DIRECTORY_PATH . 'restagon/' );
+define( 'RESTAGON_DIRECTORY_PATH' , BASE_DIRECTORY_PATH . 'restagon/' ); // please leave
 
 ### The ABSOLUTE path to the (application) directory
-define( 'APPLICATION_DIRECTORY_PATH' , BASE_DIRECTORY_PATH . 'application/' );
+define( 'APPLICATION_DIRECTORY_PATH' , BASE_DIRECTORY_PATH . 'application/' ); // please leave
 
 
 
@@ -45,10 +45,10 @@ define( 'APPLICATION_DIRECTORY_PATH' , BASE_DIRECTORY_PATH . 'application/' );
 ####################################################################################################
 
 ### The ABSOLUTE path to the (modules) directory
-define( 'MODULES_DIRECTORY_PATH' , APPLICATION_DIRECTORY_PATH . 'modules/');
+define( 'MODULES_DIRECTORY_PATH' , APPLICATION_DIRECTORY_PATH . 'modules/'); // please leave
 
 ### The ABSOLUTE path to the (includes) directory
-define( 'INCLUDES_DIRECTORY_PATH' , APPLICATION_DIRECTORY_PATH . 'includes/');
+define( 'INCLUDES_DIRECTORY_PATH' , APPLICATION_DIRECTORY_PATH . 'includes/'); // please leave
 
 
 
@@ -56,6 +56,6 @@ define( 'INCLUDES_DIRECTORY_PATH' , APPLICATION_DIRECTORY_PATH . 'includes/');
 ##################################
 
 ### The URL containing error pages
-define( 'ERROR_PAGES_URL' , 'http://api.domain.com/docs/v1/errors/' );
+define( 'ERROR_PAGES_URL' , 'http://api.domain.com/docs/v1/errors/' ); // <------------- IMPORTANT 2
 
 

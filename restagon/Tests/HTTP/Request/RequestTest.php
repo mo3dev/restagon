@@ -26,7 +26,6 @@
  * @version 0.0.2
  */
 
-
 require_once( dirname(__FILE__) . '/../../../../config.php');
 require_once( RESTAGON_DIRECTORY_PATH . 'HTTP/Request/Request.php' );
 require_once( RESTAGON_DIRECTORY_PATH . 'Restagon.api.php' );
@@ -111,15 +110,6 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$result = $this->request->isResponseFormatExtensionSupported( 'xml' );
 		$this->assertTrue( $result );
 	}
-	
-	
-	/**
-	 * test()
-	 */
-	/*public function test()
-	{
-		//
-	}*/
 	
 }
 

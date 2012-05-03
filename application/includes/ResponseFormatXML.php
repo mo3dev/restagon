@@ -40,6 +40,7 @@ class ResponseFormatXML implements iResponseFormat
 		return 'xml';
 	}
 	
+	
 	/**
 	 * contentType() method returns the HTTP Content-Type associated with the response format
 	 * 
@@ -49,6 +50,7 @@ class ResponseFormatXML implements iResponseFormat
 	{
 		return 'application/xml';
 	}
+	
 	
 	/**
 	 * getEncodedFormat() method returns encoded (serialized) response data using given raw data (ie. array)
@@ -68,6 +70,7 @@ class ResponseFormatXML implements iResponseFormat
 		
 		return $xmlHandler->outputMemory(true);
 	}
+	
 	
 	/**
 	 * processXML() method writes the (associative) array data into the XmlWriter stream memory

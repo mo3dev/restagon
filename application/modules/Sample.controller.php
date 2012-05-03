@@ -32,28 +32,30 @@ class Sample implements iModule
 {
 	
 	/**
-     * An instance of the Request class for the current request
-     * 
-     * @var Request
-     */
-    private $_request;
+	 * An instance of the Request class for the current request
+	 * 
+	 * @var Request
+	 */
+	private $_request;
+	
 	
 	/**
 	 * Class Constructor, will set the resquest property
 	 * 
 	 * @param Request The current request
 	 */
-    public function __construct($request)
+	public function __construct($request)
 	{
 		$this->_request = $request;
 	}
 	
+	
 	/**
-     *  urlMap() method returns the UNIQUE Module's Regular Expression URL string
-     *  
-     *  @return string URL path (may contain a regex) ie. 'whatever/count/(\d+)/hello'
-     */
-    public static function urlMap()
+	 * urlMap() method returns the UNIQUE Module's Regular Expression URL string
+	 * 
+	 * @return string URL path (may contain a regex) ie. '/whatever/count/(\d+)/hello'
+	 */
+	public static function urlMap()
 	{
 		return '/sample/a/1/b/2';
 	}
@@ -61,15 +63,16 @@ class Sample implements iModule
 	
 	########### SUPPORTED HTTP REQUEST METHODS ############
 	
+	
 	/**
-     * HTTP GET method 
+	 * HTTP GET method 
 	 * 
 	 * @return Response a Response object containing all data (and headers?) to send back
-     */
+	 */
 	public function get()
 	{
 		### GET something
-		// no need to check for Authentication because this request method is open for all public
+		// I don't want to check for Authentication as this request method is open for all public
 		
 		// return a success message (OK response)
 		$response = new Response($this->_request);
@@ -90,11 +93,11 @@ class Sample implements iModule
 	
 	
 	/**
-     * HTTP POST method 
+	 * HTTP POST method
 	 * 
 	 * @return Response a Response object containing all data (and headers?) to send back
-     */
-    public function post()
+	 */
+	public function post()
 	{
 		### POST something
 		// check for authentication (boolean value is expected)

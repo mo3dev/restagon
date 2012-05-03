@@ -47,6 +47,7 @@ class ResponseFormatJSON implements iResponseFormat
 		return 'json';
 	}
 	
+	
 	/**
 	 * contentType() method returns the HTTP Content-Type associated with the response format
 	 * 
@@ -56,6 +57,7 @@ class ResponseFormatJSON implements iResponseFormat
 	{
 		return 'application/json';
 	}
+	
 	
 	/**
 	 * getEncodedFormat() method returns encoded (serialized) response data using given raw data (ie. array)

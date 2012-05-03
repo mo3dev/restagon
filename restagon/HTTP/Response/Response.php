@@ -41,35 +41,38 @@ class Response
 {
 	
 	/**
-     * An array contains all header information (full header string same as the php's header function).
-     * 
-     * @var array
-     */
+	 * An array contains all header information (full header string same as the php's header function)
+	 * 
+	 * @var array
+	 */
 	private $_headers = array();
 	
+	
 	/**
-     * Associative array (property map) containing all the body data. It will be converted to the 
+	 * An associative array (property map) containing all the body data. It will be converted to the
 	 * requested format using the $_responseFormatInstance object.
-     * 
-     * @var array
-     */
+	 * 
+	 * @var array
+	 */
 	private $_body = array();
 	
-	/**
-     * iResponseFormat object (implementing iResponseFormat interface), will contain a reference to 
-	 * the object that will handle the response type as requested by the user (or default json format)
-     * 
-     * @var object following the iResponseFormat interface to handle encoding (serializing) $_body
-     */
-	private $_responseFormatInstance;
 	
 	/**
-     * A reference to the (currently-alive) Request object that is being passed around. We need it
+	 * An iResponseFormat object (implementing iResponseFormat interface), will contain a reference to
+	 * the object that will handle the response type as requested by the user (or default json format)
+	 * 
+	 * @var object following the iResponseFormat interface to handle encoding (serializing) $_body
+	 */
+	private $_responseFormatInstance;
+	
+	
+	/**
+	 * A reference to the (currently-alive) Request object that is being passed around. We need it
 	 * to get the latest response format instance and authorization header before we return the API
 	 * dispatch() method.
-     * 
-     * @var object a reference to the Request object used to create $this
-     */
+	 * 
+	 * @var object a reference to the Request object used to create $this
+	 */
 	private $_request;
 	
 	
@@ -78,23 +81,23 @@ class Response
 	 * 
 	 * @param object $request The Request object (we need to extract a few things from it)
 	 */
-    public function __construct(&$request)
+	public function __construct(&$request)
 	{
 		### set the request property (a reference only)
 		$this->_request = $request;
 	}
 	
 	
-	
 	############### GETTERS ###############
 	
+	
 	/**
-     * prepareHeaders() method uses header values the $_headers array property and send the response 
+	 * prepareHeaders() method uses header values the $_headers array property and send the response 
 	 * headers as text. This method will execute php's header() function on each element in the array
 	 * to send the headers to the client.
 	 * 
 	 * @return void
-     */
+	 */
 	public function prepareHeaders()
 	{
 		// lastminute, get the Authorization header
@@ -106,13 +109,14 @@ class Response
 		}
 	}
 	
+	
 	/**
-     * getEncodedBody() method encodes (serializes) the $_body associative array property into the 
+	 * getEncodedBody() method encodes (serializes) the $_body associative array property into the 
 	 * format requested by the client, and then return the serialized (encoded) string. Encoding uses
 	 * the $_responseFormatInstance object's getEncodedFormat($this->_body) method.
-     * 
-     * @return string A serialized (encoded) string of the data (array) in $_body property.
-     */
+	 * 
+	 * @return string A serialized (encoded) string of the data (array) in $_body property.
+	 */
 	public function getEncodedBody()
 	{
 		### lastminute, set the response format _request property
@@ -120,8 +124,7 @@ class Response
 		
 		### incase a developer does't set a response format instance, return json
 		if (is_null( $this->_responseFormatInstance )) {
-			
-			// set the Content-Type header for json
+			// set the Content-Type header as json, we will return json (failsafe default)
 			header( 'Content-type: application/json' );
 			return json_encode( $this->_body );
 			
@@ -133,16 +136,16 @@ class Response
 	}
 	
 	
-	
 	############### SETTERS ###############
 	
+	
 	/**
-     * setResponseFormatInstance() method is the setter method for the _responseFormatInstance private
+	 * setResponseFormatInstance() method is the setter method for the _responseFormatInstance private
 	 * property.
      * 
-     * @param object $value The iResponseFormat object to handle formatting (serializing) the response
-     * @return void
-     */
+	 * @param object $value The iResponseFormat object to handle formatting (serializing) the response
+	 * @return void
+	 */
 	private function setResponseFormatInstance($value)
 	{
 		### set the _responseFormatInstance, and set the Content-Type header as well
@@ -152,25 +155,27 @@ class Response
 		}
 	}
 	
+	
 	/**
-     * addHeader() method will take a header string (following php's header() function) and save the 
+	 * addHeader() method will take a header string (following php's header() function) and save the 
 	 * string in the _headers private array to be used in the prepareHeaders() method later on.
      * 
-     * @param string $value The full string of the header (following php's header() function)
-     * @return void
-     */
+	 * @param string $value The full string of the header (following php's header() function)
+	 * @return void
+	 */
 	public function addHeader($value)
 	{
 		// append the value string into the $_headers private property
 		$this->_headers[] = $value;
 	}
 	
+	
 	/**
-     * setBody() method will set the $_body array property as $final_body_array
-     * 
-     * @param string $final_body_array The body associative array
-     * @return void
-     */
+	 * setBody() method will set the $_body array property as $final_body_array
+	 * 
+	 * @param string $final_body_array The body associative array
+	 * @return void
+	 */
 	public function setBody($final_body_array)
 	{
 		$this->_body = $final_body_array;

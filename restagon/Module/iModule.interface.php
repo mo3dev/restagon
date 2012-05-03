@@ -43,24 +43,24 @@ interface iModule
 	 * 
 	 * @param Request The current request
 	 */
-    public function __construct($request);
+	public function __construct($request);
 	
 	/**
-     * urlMap() method to return the UNIQUE Module's Regular Expression URL string
-     * Each implementing class must have this method, and return the unique url path info
+	 * urlMap() method to return the UNIQUE Module's Regular Expression URL string
+	 * Each implementing class must have this method, and return the unique url path info
 	 * It may contain a regex.
+	 * ( example: map for 'hotmail.com/insignificant/subdir/whatever/count/1' is '/whatever/count/(\d+)'
 	 * 
-     * ( example: map for 'hotmail.com/insignificant/subdir/whatever/count/1' is 
-	 * @return '/whatever/count/(\d+)'; )
-     */
+	 * @return the url path map minus the host name (sddf.com) and the query string (?sdfd=sdfdf....)
+	 */
     public static function urlMap();
 	
 	/**
-     * HTTP REQUEST METHODS
+	 * HTTP REQUEST METHODS
 	 * the method name must be the same as each of the supprted request methods
 	 * 
 	 * @return Response a Response object containing all data (and headers?) to send back
-     */
+	 */
 	# I will not enforce the creation of an unused http request method through this interface,
 	# that will be up to the developer to include. But if a method is requested and is not implemented
 	# in the Module controller (implementing this interface) an error will be sent back to client.

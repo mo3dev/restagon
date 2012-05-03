@@ -39,29 +39,30 @@ class RouteMap
 {
 	
 	/**
-     * URL Map for the Module Controller. This is NOT a full regular expression, even though it can contain
+	 * URL Map for the Module Controller. This is NOT a full regular expression, even though it can contain
 	 * (in some parts) regular expressions. This hold the components (paths) of url (REQUEST_URI)
 	 * ie. /whatever/count/(\d+)/hello
-     * 
-     * @var mixed url map (path components for url to match)
-     */
+	 * 
+	 * @var mixed url map (path components for url to match)
+	 */
 	public $urlMap;
 	
+	
 	/**
-     * Module Controller Class for the RouteMap
-     * 
-     * @var string module controller class name
-     */
+	 * Module Controller Class for the RouteMap
+	 * 
+	 * @var string module controller class name
+	 */
 	public $moduleControllerClass;
 	
 	
 	/**
-     * getRegularExpressionFromRouteMap() method generates and returns an ACTUAL regular expression 
+	 * getRegularExpressionFromRouteMap() method generates and returns an ACTUAL regular expression 
 	 * using the $urlMap property.
-     * 
+	 * 
 	 * @param mixed $urlMap is the url map (optionally) passed in (cool trick that helps with testing)
-     * @return mixed regular expression of url from url map
-     */
+	 * @return mixed regular expression of url from url map
+	 */
 	public function getRegularExpressionFromRouteMap($urlMap = false)
 	{
 		// check the $urlMap as it is an optional parameter
@@ -77,6 +78,7 @@ class RouteMap
 		
 		return $regex;
 	}
+	
 }
 
 

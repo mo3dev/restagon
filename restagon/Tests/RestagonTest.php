@@ -26,7 +26,6 @@
  * @version 0.0.2
  */
 
-
 require_once( dirname(__FILE__) . '/../../config.php');
 require_once( RESTAGON_DIRECTORY_PATH . 'Restagon.api.php' );
 
@@ -87,14 +86,6 @@ class RestagonTest extends PHPUnit_Framework_TestCase
 		//$result = $this->api->setDefaultAuthenticationClass('non-existent-authentication-class');
 		//$this->assertEquals($result, FALSE);
 	}
-	
-	/**
-	 * test()
-	 */
-	/*public function test()
-	{
-		//
-	}*/
 	
 }
 
