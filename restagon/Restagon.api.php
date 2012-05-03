@@ -88,6 +88,15 @@ class Restagon
 	
 	
 	/**
+	 * An array of associative arrays containing the global response headers to be sent with every
+	 * response.
+	 * 
+	 * @var array Array of associative arrays containing global response headers.
+	 */
+	private $_globalResponseHeaders;
+	
+	
+	/**
 	 * Restagon class constructor. It will load include some required class files. It will also
 	 * create an instance of the Router class to be used by the addModuleController() method and
 	 * the findController() method to match the REQUEST_URI to a Module Controller class.
@@ -211,6 +220,27 @@ class Restagon
 	
 	
 	/**
+	 * addGlobalResponseHeader() method adds any global response headers that are to be sent with
+	 * every response. ie. Server and x-powered-by headers to hide (exploitable) environment settings.
+	 * 
+	 * @param string $string the response header string
+	 * @param boolean $replace indicates whether the header replaces the previous one or both are sent
+	 * @param integer $http_response_code forces the http response code. It is not used if $string is empty.
+	 */
+	public function addGlobalResponseHeader($string, $replace = TRUE, $http_response_code = NULL)
+	{
+		### Add the params into an associative array and that into the $this->_globalResponseHeaders array
+		if (!empty( $string )) {
+			$this->_globalResponseHeaders[] = array(
+				'string' => $string,
+				'replace' => $replace,
+				'http_response_code' => $http_response_code
+			);
+		}
+	}
+	
+	
+	/**
 	 * dispatch() method will kick start the Routing mechanism (finding the available Modules, and 
 	 * matching the current URL to one of the Module Controllers found. It will then invoke the
 	 * matched Module Controller which will return a Response object.
@@ -317,6 +347,11 @@ class Restagon
 		######################################################################
 		// firstly, get the response data
 		$response_data = $this->_response->getEncodedBody();
+		
+		// add the global response headers (if any)
+		foreach ($this->_globalResponseHeaders as $header) {
+			$this->_response->addHeader( $header['string'] ); // ONLY ADD STRING FOR NOW
+		}
 		
 		// send the headers
 		$this->_response->prepareHeaders(); // headers are in the output buffer
