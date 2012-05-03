@@ -61,6 +61,16 @@ $api->setDefaultAuthenticationClass( 'NoAuthentication' ); // public non-restric
 
 
 
+# Add Global API Response Headers (in one place)
+// You may want to send global response headers, this is where you want to add them. They will be
+// sent at the end of execution with the response.
+// note: takes the same 3 parameters as php's header() function. php.net/manual/en/function.header.php
+$api->addGlobalResponseHeader( 'Server: Super Nintendo' );
+$api->addGlobalResponseHeader( 'X-Powered-By: Your Special API v1', true );
+
+
+
+
 ### Dispatch the Request to the responsible Module Controller (automatically found by the Router)
 $api->dispatch();
 
