@@ -65,7 +65,7 @@ $api->setDefaultAuthenticationClass( 'NoAuthentication' ); // public non-restric
 // You may want to send global response headers, this is where you want to add them. They will be
 // sent at the end of execution with the response.
 // note: takes the same 3 parameters as php's header() function. php.net/manual/en/function.header.php
-$api->addGlobalResponseHeader( 'Server: Super Nintendo' );
+// note: server signature (HTTP Server header) cannot be altered using php's header() function.
 $api->addGlobalResponseHeader( 'X-Powered-By: Your Special API v1', true );
 
 
