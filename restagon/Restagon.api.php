@@ -128,7 +128,7 @@ class Restagon
 	
 	
 	/**
-     * addResponseFormat() method will take care of registering our custom (and default-framework-
+	 * addResponseFormat() method will take care of registering our custom (and default-framework-
 	 * provided ResponseFormat classes - implementing the iFormatResponse interface). The method will
 	 * add each passed-in class combo to the Request class's $formats array. The object will be passed
 	 * throughout the execution path until a Response object is created from it.
@@ -137,11 +137,11 @@ class Restagon
 	 * @param string $format_content_type the HTTP Content-Type value associated with this format
 	 * @param string $format_extension the file extension associated with this format (ie. '.xml')
 	 * @param string $path_to_class the path to the format class's file (defaults to 'application/includes')
-     * @return boolean whether the format class got added to the Response class
-     */
-    public function addResponseFormat($format_class, $format_content_type, $format_extension, 
+	 * @return boolean whether the format class got added to the Response class
+	 */
+	public function addResponseFormat($format_class, $format_content_type, $format_extension, 
 	$path_to_class = INCLUDES_DIRECTORY_PATH)
-    {
+	{
 		### add the format class's information to the $_request private property object.
 		try {
 			// $result will either return TRUE, or throw a RestagonException
@@ -159,15 +159,15 @@ class Restagon
 	
 	
 	/**
-     * addModuleController() method Manages the Router class enabling it to register available Module
+	 * addModuleController() method Manages the Router class enabling it to register available Module
 	 * Controllers, and find the one listening for the current URL.
 	 * 
 	 * @param string $module_controller_class the Module Controller's Class name
 	 * @param string $path_to_class the directory containing the module controller class file
-     * @return boolean whether the module controller class got added to the Router object
-     */
-    public function addModuleController($module_controller_class, $path_to_class = MODULES_DIRECTORY_PATH)
-    {
+	 * @return boolean whether the module controller class got added to the Router object
+	 */
+	public function addModuleController($module_controller_class, $path_to_class = MODULES_DIRECTORY_PATH)
+	{
 		### add the controller to the router object
 		try {
 			// $result will either return TRUE, or throw a RestagonException
@@ -184,17 +184,17 @@ class Restagon
 	
 	
 	/**
-     * setDefaultAuthenticationClass() method sets the Authentication class in the Request object
+	 * setDefaultAuthenticationClass() method sets the Authentication class in the Request object
 	 * for the API as a whole (initially). Authentication class can later be changed (reset) anywhere 
 	 * throughout the application from within the Request object passed around. The class needs to
 	 * implement the iAuthenticate interface.
 	 * 
 	 * @param string $authentication_class the name of the Authentication class
 	 * @param string $path_to_class the path to the class, defaults to the 'application/includes' dir
-     * @return void
-     */
-    public function setDefaultAuthenticationClass($authentication_class, $path_to_class = INCLUDES_DIRECTORY_PATH)
-    {
+	 * @return void
+	 */
+	public function setDefaultAuthenticationClass($authentication_class, $path_to_class = INCLUDES_DIRECTORY_PATH)
+	{
         ### set the Authentication class instance in the Request object
 		try {
 			// $result will either return TRUE, or throw a RestagonException
@@ -207,18 +207,18 @@ class Restagon
 			$this->answerThenExit();
 			return FALSE; // execution won't get here because the application is terminated in method above
 		}
-    }
+	}
 	
 	
 	/**
-     * dispatch() method will kick start the Routing mechanism (finding the available Modules, and 
+	 * dispatch() method will kick start the Routing mechanism (finding the available Modules, and 
 	 * matching the current URL to one of the Module Controllers found. It will then invoke the
 	 * matched Module Controller which will return a Response object.
 	 * 
-     * @return void
-     */
-    public function dispatch()
-    {
+	 * @return void
+	 */
+	public function dispatch()
+	{
 		### use the result of findController() to invoke the (found) controller and get a response
 		try {
 			
@@ -229,16 +229,16 @@ class Restagon
 			if (is_null($controllerClass)) {
 				// controller not found, send appropriate error
 				// create a Response object and throw it in a RestagonException
-					$response = new Response($this->_request);
-					
-					$response->addHeader(StatusCodes::HTTP_404); ////////////////////////////////////
-					$errorBody = array("error" => array (
-						"errorCode" => "1001",
-						"errorMessage" => "The requested resource was not found",
-						"errorURL" => ERROR_PAGES_URL . "1001"
-					));
-					$response->setBody($errorBody);
-					throw new RestagonException($response);
+				$response = new Response($this->_request);
+				
+				$response->addHeader(StatusCodes::HTTP_404); ////////////////////////////////////
+				$errorBody = array("error" => array (
+					"errorCode" => "1001",
+					"errorMessage" => "The requested resource was not found",
+					"errorURL" => ERROR_PAGES_URL . "1001"
+				));
+				$response->setBody($errorBody);
+				throw new RestagonException($response);
 					
 			} else {
 				// url is matched with a controller, check the request method
@@ -288,31 +288,31 @@ class Restagon
 			
 		}
 		
-    }
+	}
 	
 	
 	/**
-     * findController() method searches for a module controller class matching the $request_uri 
+	 * findController() method searches for a module controller class matching the $request_uri 
 	 * parameter.
 	 * 
 	 * @param string $request_uri the URL to be matched
-     * @return string|NULL Module Controller class name matching the path in $request_uri parameter
-     */
-    private function findController($request_uri)
-    {
+	 * @return string|NULL Module Controller class name matching the path in $request_uri parameter
+	 */
+	private function findController($request_uri)
+	{
 		### match and return matched controller class name (based on $request_uri)
 		return $this->_router->getModuleControllerForURI($request_uri);
 	}
 	
 	
 	/**
-     * answerThenExit() method will use the $_response private property to return the headers 
+	 * answerThenExit() method will use the $_response private property to return the headers 
 	 * and data over to the requesting client.
 	 * 
-     * @return void
-     */
-    public function answerThenExit()
-    {
+	 * @return void
+	 */
+	public function answerThenExit()
+	{
 		ob_start();
 		######################################################################
 		// firstly, get the response data
@@ -325,7 +325,7 @@ class Restagon
 		die( $response_data );
 		######################################################################
 		ob_end_flush();
-    }
+	}
 	
 }
 
