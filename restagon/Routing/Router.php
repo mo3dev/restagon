@@ -163,6 +163,9 @@ class Router
 	public function getModuleControllerForURI($uri)
 	{
 		### figure out which registered module controller is targetted by the url
+		// remove the query string from the url (starting at the '?') because that shouldnt affect resources
+		$uri = parse_url($uri, PHP_URL_PATH);
+		
 		// remove trailing slash as it throws off the regular expression
 		$uri = rtrim( $uri, '/' );
 		
