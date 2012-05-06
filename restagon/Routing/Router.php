@@ -82,8 +82,8 @@ class Router
 	public function addModuleControllerClass($module_controller_class, 
 	$path_to_class = MODULES_DIRECTORY_PATH)
 	{
-		### does the class file ($module_controller_class.controller.php) exist in the path specified?
-		$fileName = $path_to_class . $module_controller_class . '.controller.php';
+		### does the class file ($module_controller_class.php) exist in the path specified?
+		$fileName = $path_to_class . $module_controller_class . '.php';
 		
 		// file exists check
 		if (!file_exists($fileName)) {
@@ -93,7 +93,7 @@ class Router
 			$response->addHeader(StatusCodes::HTTP_500);
 			$errorBody = array("error" => array (
 				"errorCode" => "0051",
-				"errorMessage" => "The Module Controller class's file: $module_controller_class.controller.php does not exist",
+				"errorMessage" => "The Module Controller class's file: $module_controller_class.php does not exist",
 				"errorURL" => ERROR_PAGES_URL . "0051"
 			));
 			$response->setBody($errorBody);
@@ -110,7 +110,7 @@ class Router
 			$response->addHeader(StatusCodes::HTTP_500);
 			$errorBody = array("error" => array (
 				"errorCode" => "0052",
-				"errorMessage" => "The Module Controller class: $module_controller_class does not exist in file $module_controller_class.controller.php",
+				"errorMessage" => "The Module Controller class: $module_controller_class does not exist in file $module_controller_class.php",
 				"errorURL" => ERROR_PAGES_URL . "0052"
 			));
 			$response->setBody($errorBody);
