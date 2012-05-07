@@ -1,6 +1,6 @@
 <?php
 /**
- * Sample.controller.php
+ * SampleController.php
  * 
  * 
  * PHP 5
@@ -28,7 +28,7 @@
 
 
 
-class Sample implements iModule
+class SampleController implements iModule
 {
 	
 	/**
@@ -57,7 +57,7 @@ class Sample implements iModule
 	 */
 	public static function urlMap()
 	{
-		return '/sample/a/1/b/2';
+		return '/sample/a/(\d+)';
 	}
 	
 	

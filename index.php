@@ -50,7 +50,7 @@ $api->addResponseFormat( 'ResponseFormatXML', 'application/xml', 'xml' );
 
 
 ### Add Module Controller Class Names (Manually)
-$api->addModuleController( 'Sample' ); // url: /sample/a/1/b/
+$api->addModuleController( 'SampleController' ); // url: /sample/a/4
 
 
 
