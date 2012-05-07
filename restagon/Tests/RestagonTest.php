@@ -65,7 +65,7 @@ class RestagonTest extends PHPUnit_Framework_TestCase
 	public function testAddModuleController()
 	{
 		// add a controller class and check the return value (true = success, ErrorResponse object = fail)
-		$result = $this->api->addModuleController('Sample');
+		$result = $this->api->addModuleController('SampleController');
 		$this->assertEquals($result, TRUE);
 		
 		// test to fail - will execute code that has die(), until php-test-helpers ext is installed only test passes
