@@ -19,8 +19,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * @package Restagon.Authentication
- * @author Mohamed Ibrahim <mo3dev@gmail.com>
- * @copyright Copyright 2012, Mohamed Ibrahim <mo3dev@gmail.com>
+ * @author Mohamed Ibrahim <mohamed@minarah.com>
+ * @copyright Copyright 2012, Mohamed Ibrahim <mohamed@minarah.com>
  * @licence http://opensource.org/licenses/BSD-3-Clause The BSD 3-Clause License (BSD New)
  * @link http://restagon.minarah.com Restagon - PHP RESTful API Framework
  * @version 0.0.2
