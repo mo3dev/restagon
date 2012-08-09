@@ -27,11 +27,11 @@
  */
 
 
-######### PLEASE SET THE FOLLOWING TWO PATHS
-#############################################
+######### FRAMEWORK CONFIGURATIONS
+##################################
 
 ### The base directory path (the path containing the framework folder and everything else)
-define( 'BASE_DIRECTORY_PATH' , '/ABSOLUTE/PATH/TO/public_html/api/v1/' ); // <--------- IMPORTANT 1
+define( 'BASE_DIRECTORY_PATH' , dirname(realpath(__FILE__)) . '/' ); // please leave
 
 ### The ABSOLUTE path to the (restagon) directory
 define( 'RESTAGON_DIRECTORY_PATH' , BASE_DIRECTORY_PATH . 'restagon/' ); // please leave
@@ -55,7 +55,7 @@ define( 'INCLUDES_DIRECTORY_PATH' , APPLICATION_DIRECTORY_PATH . 'includes/'); /
 ######### PLEASE SET THE ROOT URLS
 ##################################
 
-### The URL containing error pages
-define( 'ERROR_PAGES_URL' , 'http://api.domain.com/docs/v1/errors/' ); // <------------- IMPORTANT 2
+### The URL containing error pages, it will be sent back to the clients along with errors messages
+define( 'ERROR_PAGES_URL' , 'http://developers.domain.com/docs/v1/errors/' ); // Please set accordingly
 
 
