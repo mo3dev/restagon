@@ -1,11 +1,10 @@
-Restagon - Another PHP RESTful API Framework
-============================================
-
+Restagon
+========
 Another PHP RESTful API Framework
 
 
 Installation Instructions
-=========================
+-------------------------
 1- Download and Extract the contents of the zip file
 2- Rename the extracted directory to the root of your API (ie. api, or v1/api with the appropriate versioning)
 3- Edit the ERROR_PAGES_URL define in the config.php file with the url to your error pages
