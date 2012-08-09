@@ -3,6 +3,14 @@ Restagon
 Another PHP RESTful API Framework.
 
 
+Features
+--------
+* Uses regular expressions on the URL to route requests to a specific controller
+* The Controllers can listen to any custom URL format the developer wants (not restricted to the controller name)
+* It is easy to add Controllers to the API
+* You can implement any HTTP METHODS you need, and not worry about implementing the rest
+
+
 Installation Instructions
 -------------------------
 * Download and Extract the contents of the zip file.
