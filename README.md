@@ -19,3 +19,7 @@ Installation Instructions
 * Create a Controller of your choice in 'applicaton/modules' (see SampleController.php file).
 * Add your newly created controller to the index.php (see addModuleController( 'SampleController' ); ).
 * Test.
+
+Notes
+-----
+* The framework needs mod_rewrite enabled in your host, and to be able to use .htaccess files (they are blocked in some hosts)
