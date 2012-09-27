@@ -297,10 +297,22 @@ class Request
 	
 	
 	/**
-	 * isAuthenticated() method forwards the invocation to the _authenticationInstance->isAuthenticated()
+	 * getAuthenticationInstance() method returns the _authenticationInstance private property.
+	 * 
+	 * @return iAuthenticate object, which is an instance of an auth class set previously
+	 */
+	public function getAuthenticationInstance()
+	{
+		return $this->_authenticationInstance;
+	}
+	
+	
+	/**
+	 * ***DEPRICATED*** isAuthenticated() method forwards the invocation to the _authenticationInstance->isAuthenticated()
 	 * method. So that other classes can get authentication information through the Request object, 
 	 * and not having them get direct access to the Authentication class.
 	 * 
+	 * @depricated Unuseful. Use getAuthenticationInstance() instead, then call isAuthenticated() on returned object.
 	 * @return boolean Whether the request is Authenticated or not.
 	 */
 	public function isAuthenticated()
@@ -310,9 +322,10 @@ class Request
 	
 	
 	/**
-	 * getAuthorizationHeader() forwards the invocation to the 
+	 * ***DEPRICATED*** getAuthorizationHeader() forwards the invocation to the 
 	 * _authenticationInstance->getAuthorizationHeader() method.
 	 * 
+	 * @depricated Unuseful. Use getAuthenticationInstance() instead, then call getAuthorizationHeader() on returned object.
 	 * @return string HTTP authorization header string to be processed later using php's header function
 	 */
 	public function getAuthorizationHeader()
